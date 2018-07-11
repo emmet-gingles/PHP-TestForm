@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banner</title>
+    <link type="text/css" rel="stylesheet" href="../style/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // when link is click use AJAX to call php file to delete cookies
+            $("#logout").click(function(){
+                $.ajax({
+                    url: './logoutUser.php',
+                    type: 'POST'
+                }).done(function (result) {
+                    // once complete redirrect user to login page
+                    $(location).attr('href', './login.php');
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="banner">
+        <a href="./home.php">Home</a>
+        <a href="./updateEmail.php">Update Email</a>
+        <a href="./updatePassword.php">Update Password</a>
+        <a href="./updateAddress.php">Update Address</a>
+        <a id="logout" href="#">Logout</a>
+    </div>
+</body>
+</html>
